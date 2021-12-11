@@ -5,6 +5,9 @@ const gameBoard = document.querySelector('.game-board');
 
 function handleBoxClick(e){
     e.target.innerText = currentPlayer;
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    //update the text for whos turn it is
+    //check to see whos wins
 }
 
 //create 9 boxes
@@ -48,3 +51,16 @@ let winningConditions=[
   [0,4,8],
   [2,4,6],
 ];
+
+// clear button functionality
+const clearButton = document.querySelector('.clear-button');
+
+clearButton.addEventListener('click', () => {
+    // get a list of all our boxes
+    const boxes = document.querySelectorAll('.box');
+    // go through each box and set its innerText to '';
+    for(let i = 0; i < boxes.length; i++){
+        let currentBox = boxes[i];
+        currentBox.innerText = '';
+    }
+});
